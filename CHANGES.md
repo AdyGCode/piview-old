@@ -1,5 +1,8 @@
 # Changes to PiView-AG
 
+### 0.0.3 Setup fixes
+Small fixes to setup.cfg, and a source reformat.
+
 ### 0.0.2 Utils
 Added Utils to the package. Utils includes:
 - format_bytes

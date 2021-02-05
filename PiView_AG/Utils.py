@@ -61,4 +61,3 @@ class Utils:
             suffix = long_end
 
         return size, power_labels[n] + suffix
-

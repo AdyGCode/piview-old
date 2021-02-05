@@ -1,5 +1,6 @@
 from PiView_AG.Utils import Utils
 
+
 def test_draw_no_line():
     utils = Utils()
     results = utils.draw_line(length=0)
