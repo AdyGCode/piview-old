@@ -1,3 +1,6 @@
+import random
+
+
 class Utils:
 
     def __init__(self):
@@ -39,7 +42,8 @@ class Utils:
 
         :param size: integer, defaults to 0
         :param style: string, defaults to None
-        :return: tuple (float, string)
+        :rtype: tuple
+        :return: (float, string)
         """
         power = 2 ** 10  # 2**10 = 1024
         n = 0
@@ -61,3 +65,23 @@ class Utils:
             suffix = long_end
 
         return size, power_labels[n] + suffix
+
+
+def random_percentage(min_percentage=0, max_percentage=100):
+    """
+    This function returns a random percentage.
+    Useful for simulations when developing monitoring dashboards
+
+
+    :param min_percentage: Minimum value to return, default 0.0
+    :param max_percentage: Maximum to return, default 100.0
+    :rtype: float
+    :return: A random CPU load value between 0% and 100% to 1DP
+    """
+    load = random.gauss(55, 10)
+    if load < min_percentage:
+        return 0.0
+    elif load > max_percentage:
+        return 100.0
+    else:
+        return round(load, 1)

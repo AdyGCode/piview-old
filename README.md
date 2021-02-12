@@ -5,13 +5,12 @@ A Raspberry Pi system information package.
 PiView provides the details of the Raspberry Pi currently being interrogated. 
 System information that may be retrieved includes:
 
-- **CPU**: load, temperature
+- **CPU**: max load across cores, temperature, clock speed
 - **GPU**: temperature
-- **HARDWARE**: bluetooth, i2c, spi
+- **HARDWARE**: bluetooth, i2c, spi, camera statuses
 - **HOST**: boot time, model, name, revision, serial number, uptime
-- **MEMORY**: free, total, used
 - **NETWORK**: host name, interface names, ip addresses, mac addresses
-- **STORAGE**: total, free
+- **STORAGE**: total disk capacity, free disk capacity, total RAM and free RAM
 
 Also includes a small utility library with:
 
