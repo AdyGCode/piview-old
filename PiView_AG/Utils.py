@@ -1,6 +1,5 @@
 import random
 
-
 class Utils:
 
     def __init__(self):
