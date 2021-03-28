@@ -29,7 +29,7 @@ class CPU:
             This function returns the maximum "CPU load" across all CPU cores,
             or a random value if the actual CPU load can't be determined.
 
-            :return: float Actual CPU load if available, else a random CPU load
+            :return float: Actual CPU load if available, else a random CPU load
             """
         if psutil is not None:
             return max(psutil.cpu_percent(percpu=True))
@@ -41,7 +41,7 @@ class CPU:
         Requests the CPU temperature from the vcgencmd returning the
         result to the caller as a string with a floating point value to 2DP
 
-        :return string: CPU temperature to 2DP
+        :return float: CPU temperature to 2DP
         """
         # Extract CPU temp
         try:
@@ -49,5 +49,5 @@ class CPU:
             temp = temp[5:-3]
         except:
             temp = '0.0'
-        temp = f"{float(temp):.2f}"
-        return str(temp)
+        temp = round(temp,2)
+        return temp
