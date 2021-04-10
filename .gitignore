@@ -326,3 +326,4 @@ $RECYCLE.BIN/
 /venv/lib/python3.9/.DS_Store
 
 /.run/
+.obsidian
