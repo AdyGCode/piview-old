@@ -1,7 +1,9 @@
 # PiView
 A Raspberry Pi system information package.
 
-![[PiView@0.25x.png]]
+![PiView Icon](https://github.com/AdyGCode/PiView-AG/blob/main/attachments/PiView%400.25x.png)
+
+
 
 PiView provides the details of the Raspberry Pi currently being interrogated. 
 System information  includes, but is not limited to:
@@ -20,7 +22,7 @@ Also includes a small utility library with:
 
 
 ## Changes
-See the [[CHANGES]] document for details of updates and changes.
+See the [CHANGES](https://github.com/AdyGCode/PiView-AG/blob/main/CHANGES.md) document for details of updates and changes.
 
 
 ## Acknowledgements
