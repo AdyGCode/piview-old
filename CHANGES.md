@@ -2,7 +2,7 @@
 ## TO DO
 This is a list of components to be implemented:
 
-- **HARDWARE**: bluetooth, i2c, spi, camera statuses
+- **HARDWARE**: camera statuses
 - **HOST**: boot time, model, name, revision, serial number, uptime
 - **NETWORK**: host name, interface names, ip addresses, mac addresses
 - **STORAGE**: total disk capacity, free disk capacity, total RAM and free RAM
@@ -12,6 +12,7 @@ Future features will be added to this list as required.
 
 ## COMPLETE
 These items are completed.
+
 
 
 
