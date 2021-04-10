@@ -3,7 +3,7 @@
 This is a list of components to be implemented:
 
 - **HARDWARE**: camera statuses
-- **HOST**: boot time, model, name, revision, serial number, uptime
+- **HOST**:  name
 - **NETWORK**: host name, interface names, ip addresses, mac addresses
 - **STORAGE**: total disk capacity, free disk capacity, total RAM and free RAM
 - **CPU**: load across each core of the processor (as a list/dictionary)
@@ -13,7 +13,23 @@ Future features will be added to this list as required.
 ## COMPLETE
 These items are completed.
 
+### 0.4.0 Network Features
+The following are implement in this version:
+- host name
+- interface names
+- ip addresses
+- mac addresses
 
+Fixed missing self references in classes, removed get_ from function names
+Added missing file headers...
+
+### 0.3.0 Host Features
+The following have been implemented:
+- boot time 
+- model
+- serial number
+- uptime
+- revision
 
 
 - ### 0.2.0 Hardware Features

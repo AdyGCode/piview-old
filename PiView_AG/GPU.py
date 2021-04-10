@@ -1,9 +1,5 @@
 import subprocess
 
-import psutil
-
-from PiView_AG.Utils import random_percentage
-
 
 class GPU:
     def temperature(self):
@@ -19,6 +15,5 @@ class GPU:
             temp = float(temp) / 1000
         except:
             temp = 0.0
-        temp = round(temp,2)
+        temp = round(temp, 2)
         return temp
-

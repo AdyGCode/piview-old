@@ -1,7 +1,9 @@
 import subprocess
 
+
 class Hardware:
-    def get_bt(self):
+    
+    def bt(self):
         """
         Check if Bluetooth module is enabled
 
@@ -19,8 +21,7 @@ class Hardware:
             pass
         return bt
 
-
-    def get_spi(self):
+    def spi(self):
         """
         Check if SPI bus is enabled by checking for spi_bcm2 modules
 
@@ -38,7 +39,7 @@ class Hardware:
             pass
         return spi
 
-    def get_i2c(self):
+    def i2c(self):
         """
         Check if I2C bus is enabled by checking for i2c_bcm2 modules
 
