@@ -1,8 +1,22 @@
+"""
+Project:    PiView
+Filename:   CPU.py
+Location:   ./PiView_AG
+Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+Created:    10/04/21
+Purpose:
+    This file provides the following features, methods and associated
+    supporting code:
+    - speed
+    - maximum load
+    - temperature
+
+"""
 import subprocess
 
 import psutil
 
-from PiView_AG.Utils import random_percentage
+from PiView_AG import Utils
 
 
 class CPU:
@@ -34,7 +48,7 @@ class CPU:
         if psutil is not None:
             return max(psutil.cpu_percent(percpu=True))
         else:
-            return random_percentage()
+            return Utils.random_percentage()
 
     def temperature(self):
         """
@@ -49,5 +63,5 @@ class CPU:
             temp = temp[5:-3]
         except:
             temp = '0.0'
-        temp = round(temp,2)
+        temp = round(temp, 2)
         return temp

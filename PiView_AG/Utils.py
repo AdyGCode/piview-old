@@ -1,4 +1,18 @@
+"""
+Project:    PiView
+Filename:   Utils.py
+Location:   ./PiView_AG
+Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+Created:    10/04/21
+Purpose:
+    This file provides the following features, methods and associated
+    supporting code:
+    - draw a line using a provided string
+    - format a number (bytes) into Bytes, KB, MB, GB,...
+    - random number (percentage) between max and min percentages
+"""
 import random
+
 
 class Utils:
 
@@ -65,22 +79,21 @@ class Utils:
 
         return size, power_labels[n] + suffix
 
+    def random_percentage(self, min_percentage=0, max_percentage=100):
+        """
+        This function returns a random percentage.
+        Useful for simulations when developing monitoring dashboards
 
-def random_percentage(min_percentage=0, max_percentage=100):
-    """
-    This function returns a random percentage.
-    Useful for simulations when developing monitoring dashboards
 
-
-    :param min_percentage: Minimum value to return, default 0.0
-    :param max_percentage: Maximum to return, default 100.0
-    :rtype: float
-    :return: A random CPU load value between 0% and 100% to 1DP
-    """
-    load = random.gauss(55, 10)
-    if load < min_percentage:
-        return 0.0
-    elif load > max_percentage:
-        return 100.0
-    else:
-        return round(load, 1)
+        :param min_percentage: Minimum value to return, default 0.0
+        :param max_percentage: Maximum to return, default 100.0
+        :rtype: float
+        :return: A random CPU load value between 0% and 100% to 1DP
+        """
+        load = random.gauss(55, 10)
+        if load < min_percentage:
+            return 0.0
+        elif load > max_percentage:
+            return 100.0
+        else:
+            return round(load, 1)
