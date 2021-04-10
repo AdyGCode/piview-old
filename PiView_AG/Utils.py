@@ -1,16 +1,15 @@
-"""
-Project:    PiView
-Filename:   Utils.py
-Location:   ./PiView_AG
-Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
-Created:    10/04/21
-Purpose:
-    This file provides the following features, methods and associated
-    supporting code:
-    - draw a line using a provided string
-    - format a number (bytes) into Bytes, KB, MB, GB,...
-    - random number (percentage) between max and min percentages
-"""
+# Project:    PiView
+# Filename:   Utils.py
+# Location:   ./PiView_AG
+# Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+# Created:    10/04/21
+#
+# This file provides the following features, methods and associated
+# supporting code:
+# - draw a line using a provided string
+# - format a number (bytes) into Bytes, KB, MB, GB,...
+# - random number (percentage) between max and min percentages
+
 import random
 
 
@@ -23,9 +22,10 @@ class Utils:
         """
         Draw a line of characters using a given character and length
 
-        :param characters: The character(s) to draw with
-        :param length: The length of the line
-        :return: string
+        :param characters: string, the character(s) to draw with
+        :param length: integer), the length of the line
+        :rtype: string
+        :return: A string of exactly length characters
         """
         characters_length = len(characters)
         repeats = length // characters_length
@@ -44,12 +44,15 @@ class Utils:
     # -application
     # -converting-b-to-kb-mb-gb-tb/37423778
     def format_bytes(self, size=0, style=None):
-        """Formats the given value into Bytes, Kilobytes, Megabytes, ...
+        """
+        Formats the given value into Bytes, Kilobytes, Megabytes, ...
+
         Using Byte shorthand by default - B, KB, MB, ...
 
         The style may be:
-            None | short | s  -- Short labels
-            long | l          -- Long labels
+
+        - None | short | s  -- Short labels
+        - long | l          -- Long labels
 
         If style is anything other than above, then defaults to long format.
 
@@ -85,8 +88,8 @@ class Utils:
         Useful for simulations when developing monitoring dashboards
 
 
-        :param min_percentage: Minimum value to return, default 0.0
-        :param max_percentage: Maximum to return, default 100.0
+        :param min_percentage: float, minimum value to return, default 0.0
+        :param max_percentage: float, maximum to return, default 100.0
         :rtype: float
         :return: A random CPU load value between 0% and 100% to 1DP
         """

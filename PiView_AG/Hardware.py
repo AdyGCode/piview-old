@@ -1,3 +1,16 @@
+# Project:    PiView
+# Filename:   Hardware.py
+# Location:   ./PiView_AG
+# Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+# Created:    10/04/21
+#
+# This file provides the following features, methods and associated supporting
+# code:
+# - bt (Bluetooth status)
+# - camera (camera status)
+# - spi (SPI Bus status)
+# - i2c (I2C status)
+
 import subprocess
 
 
@@ -7,7 +20,8 @@ class Hardware:
         """
         Check if Bluetooth module is enabled
 
-        :return: boolean
+        :rtype: boolean
+        :return: True|False
         """
         bt = False
         try:
@@ -25,7 +39,8 @@ class Hardware:
         """
         Check if SPI bus is enabled by checking for spi_bcm2 modules
 
-        :return: boolean
+        :rtype: boolean
+        :return: True|False
         """
         spi = False
         try:
@@ -43,7 +58,8 @@ class Hardware:
         """
         Check if I2C bus is enabled by checking for i2c_bcm2 modules
 
-        :return: boolean
+        :rtype: boolean
+        :return: True|False
         """
         i2c = False
         try:
@@ -58,9 +74,11 @@ class Hardware:
         return i2c
 
     def camera(self):
-        """Check if camera is enabled and present
+        """
+        Check if camera is enabled and present
 
-        :return: dictionary {"supported": boolean, "detected": boolean}
+        :rtype: dictionary
+        :return: Details in form {"supported": boolean, "detected": boolean}
         """
         camera = {"supported": None, "detected": None}
         try:
