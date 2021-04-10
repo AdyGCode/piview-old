@@ -1,12 +1,11 @@
 # PiView
+
 A Raspberry Pi system information package.
 
 ![PiView Icon](https://github.com/AdyGCode/PiView-AG/blob/main/attachments/PiView%400.25x.png)
 
-
-
-PiView provides the details of the Raspberry Pi currently being interrogated. 
-System information  includes, but is not limited to:
+PiView provides the details of the Raspberry Pi currently being interrogated. System information
+includes, but is not limited to:
 
 - **CPU**: max load across cores, temperature, clock speed
 - **GPU**: temperature
@@ -20,48 +19,80 @@ Also includes a small utility library with:
 - conversion of bytes into Kilobytes, Megabytes, Gigabytes and up
 - create list with a quartet of integer numbers representing the IPv4 Address
 
-
 ## Changes
-See the [CHANGES](https://github.com/AdyGCode/PiView-AG/blob/main/CHANGES.md) document for details of updates and changes.
 
+See the [CHANGES](https://github.com/AdyGCode/PiView-AG/blob/main/CHANGES.md) document for
+details of updates and changes.
+
+## Requirements
+
+This project requires a number of packages, including:
+
+- psutils
+
+Remaining packages are Python 'built-ins'.
 
 ## Building
-Building is in 3 stages:
-1. build package
-2. publish package
-3. Update and build docs
 
+Building is in 3 stages:
+
+1. Build package
+2. Update and build docs
+3. Publish package
 
 ### Build package
+
 ```shell
 python3 -m build
-python3 -m twine upload --repository PiView-AG dist/*
 ```
-
 
 ### Build Docs
 
+If you wish to build the docs from scratch, then remove the docs/source/modules.rst and the
+docs/source/PiView_AG.rst.
+
+From there, first time through use:
+
 ```shell
-python3 -m sphinx docs-old/source docs-old/build/html -a -j 2
+cd docs
+sphinx-apidoc -o source ../PiView_AG -a -f 
+sphinx-build -b html source html -a -j 2
 ```
 
+Subsequent runs, if you are in the documentation (docs) folder already:
+
+```shell
+sphinx-apidoc -o source ../PiView_AG -a -f 
+make clean && make html
+```
+
+### Publish package
+
+```shell
+python3 -m twine upload --repository PiView-AG dist/*
+```
 
 ## Acknowledgements
+
 A very large thank you to Matt Hawkins upon whose code this package is based.
 [https://www.raspberrypi-spy.co.uk/](https://www.raspberrypi-spy.co.uk/)
 
-The original code may be found as 
-[mypi.py](https://github.com/tdamdouni/Raspberry-Pi-DIY-Projects/blob/master/MattHawkinsUK-rpispy-misc/python/mypi.py).
-
+The original code may be found as
+[mypi.py](https://github.com/tdamdouni/Raspberry-Pi-DIY-Projects/blob/master/MattHawkinsUK-rpispy-misc/python/mypi.py)
+.
 
 ## About the Author
-Adrian Gould has been coding for over 40 years, starting his coding in Sinclair ZX-80 Basic and Machine Code, through Pascal, Modula-2, Occam, Prolog and many others to the current swathe of Python, C#, PHP, JS, and other languages today. 
 
-He believes that it is a continuous process to learn a language, and will always say he is not an expert. 
+Adrian Gould has been coding for over 40 years, starting his coding in Sinclair ZX-80 Basic and
+Machine Code, through Pascal, Modula-2, Occam, Prolog and many others to the current swathe of
+Python, C#, PHP, JS, and other languages today.
 
-He is a full time educator in Perth, Western Australia. 
+He believes that it is a continuous process to learn a language, and will always say he is not
+an expert.
 
+He is a full time educator in Perth, Western Australia.
 
 ## Copyright
-Copyright Adrian Gould, 2021-.
-Licensed under the [Open Software License version 3.0](./LICENSE.txt)
+
+Copyright Adrian Gould, 2021-. Licensed under
+the [Open Software License version 3.0](./LICENSE.txt)
