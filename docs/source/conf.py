@@ -12,19 +12,18 @@
 #
 import os
 import sys
-# sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../'))
 
+# sys.path.insert(0, os.path.abspath('../..'))
+for x in os.walk('../'):
+    sys.path.insert(0, x[0])
 
 # -- Project information -----------------------------------------------------
-
 project = 'PiView_AG'
-copyright = '2021, Adrian Gould, Sander Huijsen'
-author = 'Adrian Gould, Sander Huijsen'
+copyright = '2021, Adrian Gould'
+author = 'Adrian Gould'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.4'
-
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,7 +31,11 @@ release = '0.0.4'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'rinoh.frontend.sphinx'
+    'rinoh.frontend.sphinx',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.viewcode',
+    'recommonmark',
+    'sphinx.ext.todo'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -43,26 +46,28 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# -- Options for Latex/Rinoh output ------------------------------------------
+latex_elements = {
+    'papersize': 'a4paper',
+    'pointsize': '10pt',
+    'preamble': '',
+    'figure_align': 'htbp'
+}
 
-# -- Options for Latex/Rinoh output
-# -------------------------------------------------
-
-latex_elements={
-    'papersize':'a4paper',
-    'pointsize':'10pt',
-    'preamble':'',
-    'figure_align':'htbp'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
 }

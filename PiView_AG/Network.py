@@ -1,17 +1,16 @@
-"""
-Project:    PiView
-Filename:   Network.py
-Location:   ./PiView_AG
-Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
-Created:    10/04/21
-Purpose:
-    This file provides the following features, methods and associated
-    supporting code:
-    - host name
-    - interface names
-    - ip addresses
-    - mac addresses
-"""
+# Project:    PiView
+# Filename:   Network.py
+# Location:   ./PiView_AG
+# Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+# Created:    10/04/21
+#
+# This file provides the following features, methods and associated
+# supporting code:
+# - host name
+# - interface names
+# - ip addresses
+# - mac addresses
+
 import os
 from socket import gethostname
 
@@ -21,7 +20,8 @@ class Network:
     def host_name(self):
         """Provide the host name to the user
 
-        :return:
+        :rtype: string
+        :return: The host name of the Pi
         """
         # return platform.node()
         # return platform.uname()[1]
@@ -30,8 +30,9 @@ class Network:
     def eth_name(self, type=None):
         """Provide the Ethernet interface name
 
-        :param type: Options are: enx or eth
-        :return: String
+        :param type: string, possible options are: enx or eth
+        :rtype: string
+        :return: The network interface name
         """
         options = ['enx', 'eth']
         interface = None
@@ -54,8 +55,9 @@ class Network:
 
         Default is eth0
 
-        :param interface: String, The interface name to query
-        :return: String
+        :param interface: string, the interface name to query
+        :rtype: string
+        :return: Mac address of the selected interface
         """
         # Return the MAC address of named Ethernet interface
         try:
@@ -72,8 +74,9 @@ class Network:
         Uses the ifconfig command to create a text file, then processes this
         file to obtain the IP address.
 
-        :param interface: String the interface to obtain the IP address for
-        :return: String
+        :param interface: string, the interface to obtain the IP address for
+        :rtype: string
+        :return: IPv4 address of the selected interface
         """
         try:
             filename = 'ifconfig_' + interface + '.txt'

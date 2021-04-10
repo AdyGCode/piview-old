@@ -25,6 +25,27 @@ Also includes a small utility library with:
 See the [CHANGES](https://github.com/AdyGCode/PiView-AG/blob/main/CHANGES.md) document for details of updates and changes.
 
 
+## Building
+Building is in 3 stages:
+1. build package
+2. publish package
+3. Update and build docs
+
+
+### Build package
+```shell
+python3 -m build
+python3 -m twine upload --repository PiView-AG dist/*
+```
+
+
+### Build Docs
+
+```shell
+python3 -m sphinx docs-old/source docs-old/build/html -a -j 2
+```
+
+
 ## Acknowledgements
 A very large thank you to Matt Hawkins upon whose code this package is based.
 [https://www.raspberrypi-spy.co.uk/](https://www.raspberrypi-spy.co.uk/)

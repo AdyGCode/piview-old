@@ -1,22 +1,20 @@
-"""
-Project:    PiView
-Filename:   Host.py
-Location:   ./PiView_AG
-Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
-Created:    10/04/21
-Purpose:
-    This file provides the following features, methods and associated
-    supporting code:
-    - get boot time
-    - get model
-    - get revision
-    - get serial
-    - get uptime
+# Project:    PiView
+# Filename:   Host.py
+# Location:   ./PiView_AG
+# Author:     Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+# Created:    10/04/21
+#
+# This file provides the following features, methods and associated supporting
+# code:
+# - get boot time
+# - get model
+# - get revision
+# - get serial
+# - get uptime
+#
+# The following may be deprecated at some point:
+# - name
 
-    The following are yet to be implemented fully:
-    - name
-    
-"""
 from datetime import datetime, timedelta
 from socket import gethostname
 from sys import platform
@@ -27,19 +25,23 @@ import psutil
 class Host():
 
     def boot_time(self):
-        """Determines the time the device was started
+        """
+        Determines the time the device was started
 
-        :return: datetime
+        :rtype: datetime
+        :return: How long ago the Pi was booted
         """
         booted_at = datetime.fromtimestamp(psutil.boot_time())
         return booted_at
 
     def model(self):
-        """Provide Pi Model Details
+        """
+        Provide Pi Model Details
 
         Extracts the details from the device tree model file
 
-        :return:
+        :rtype: string
+        :return: The model name and other identifying details
         """
         try:
             my_model = open('/proc/device-tree/model').readline()
@@ -49,26 +51,32 @@ class Host():
         return my_model
 
     def name(self):
-        """Provides the host name to the user
+        """
+        Provides the host name to the user
 
-        :return: String
+        :rtype: string
+        :return: The host name of the Pi
         """
         return gethostname()
 
-    def get_python():
-        """Get current Python version
+    def python(self):
+        """
+        Get current Python version
 
-        :return: string
+        :rtype: string
+        :return: A string containing the version of python that is being used
         """
         pythonv = platform.python_version()
         return pythonv
 
     def revision(self):
-        """Provide board revision details
+        """
+        Provide board revision details
 
         The details are extracted from the cpu info file
 
-        :return: string
+        :rtype: string
+        :return: The revision number of the Pi motherboard
         """
         my_revision = "Error"
         try:
@@ -83,11 +91,13 @@ class Host():
         return my_revision
 
     def serial(self):
-        """Provide the Serial Number of the Pi CPU
+        """
+        Provide the Serial Number of the Pi CPU
 
         The details are extracted from the cpu info file
 
-        :return: string
+        :rtype: string
+        :return: The Pi's serial number
         """
         my_cpu_serial = "Error"
         try:
@@ -102,10 +112,12 @@ class Host():
         return my_cpu_serial
 
     def uptime(self):
-        """Determines the amount of time the device has been running for in
+        """
+        Determines the amount of time the device has been running for in
         seconds
 
-        :return: seconds (float)
+        :rtype: float
+        :return: The time that the Pi has been 'up' for
         """
         booted_at = self.boot_time()
         current_at = datetime.now()
