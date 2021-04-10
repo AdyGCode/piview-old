@@ -23,7 +23,7 @@ import psutil
 
 
 class Host():
-    
+
     def boot_time(self):
         """Determines the time the device was started
 
