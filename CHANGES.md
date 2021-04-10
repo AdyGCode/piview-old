@@ -2,10 +2,7 @@
 ## TO DO
 This is a list of components to be implemented:
 
-- **HARDWARE**: camera statuses
-- **HOST**:  name
-- **NETWORK**: host name, interface names, ip addresses, mac addresses
-- **STORAGE**: total disk capacity, free disk capacity, total RAM and free RAM
+- **STORAGE**: for all storage devices: disk capacity, free disk capacity
 - **CPU**: load across each core of the processor (as a list/dictionary)
 
 Future features will be added to this list as required.
@@ -13,8 +10,26 @@ Future features will be added to this list as required.
 ## COMPLETE
 These items are completed.
 
+### 1.0.0 Initial Release
+Some enhancements to come - such as return all the attached storage statistics
+
+Added:
+- python version (HOST)
+- camera supported / detected (HARDWARE)
+
+### 0.5.0
+Added the following:
+- ram total and free
+- storage total and free for 'all disks' in total
+- name to Host, this is a temporary version until further investigation done, use the host 
+  name method in the network section to get host name
+
+To do:
+- statistics (total space, free) for each attached storage device
+
+
 ### 0.4.0 Network Features
-The following are implement in this version:
+The following are implemented in this version:
 - host name
 - interface names
 - ip addresses

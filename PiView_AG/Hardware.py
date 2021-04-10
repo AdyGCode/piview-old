@@ -2,7 +2,7 @@ import subprocess
 
 
 class Hardware:
-    
+
     def bt(self):
         """
         Check if Bluetooth module is enabled
@@ -56,3 +56,20 @@ class Hardware:
         except:
             pass
         return i2c
+
+    def camera(self):
+        """Check if camera is enabled and present
+
+        :return: dictionary {"supported": boolean, "detected": boolean}
+        """
+        camera = {"supported": None, "detected": None}
+        try:
+            c = subprocess.Popen(["/opt/vc/bin/vcgencmd", "get_camera"],
+                                 stdout=subprocess.PIPE)
+            output = c.communicate()[0]
+            supported = output[10] == ord("1")
+            detected = output[21] == ord("1")
+            camera = {"supported": supported, "detected": detected}
+        except:
+            pass
+        return camera
