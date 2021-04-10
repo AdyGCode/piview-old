@@ -18,6 +18,8 @@ Purpose:
     
 """
 from datetime import datetime, timedelta
+from socket import gethostname
+from sys import platform
 
 import psutil
 
@@ -47,11 +49,19 @@ class Host():
         return my_model
 
     def name(self):
-        """TODO: Not Implemented
+        """Provides the host name to the user
 
-        :return:
+        :return: String
         """
-        return None
+        return gethostname()
+
+    def get_python():
+        """Get current Python version
+
+        :return: string
+        """
+        pythonv = platform.python_version()
+        return pythonv
 
     def revision(self):
         """Provide board revision details
