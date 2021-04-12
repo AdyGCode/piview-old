@@ -12,7 +12,8 @@ import subprocess
 
 
 class GPU:
-    def temperature(self):
+    @staticmethod
+    def temperature():
         """
         Requests the GPU temperature from the thermal zone details
 

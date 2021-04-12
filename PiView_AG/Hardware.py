@@ -15,8 +15,8 @@ import subprocess
 
 
 class Hardware:
-
-    def bt(self):
+    @staticmethod
+    def bt():
         """
         Check if Bluetooth module is enabled
 
@@ -35,7 +35,8 @@ class Hardware:
             pass
         return bt
 
-    def spi(self):
+    @staticmethod
+    def spi():
         """
         Check if SPI bus is enabled by checking for spi_bcm2 modules
 
@@ -54,7 +55,8 @@ class Hardware:
             pass
         return spi
 
-    def i2c(self):
+    @staticmethod
+    def i2c():
         """
         Check if I2C bus is enabled by checking for i2c_bcm2 modules
 
@@ -73,7 +75,8 @@ class Hardware:
             pass
         return i2c
 
-    def camera(self):
+    @staticmethod
+    def camera():
         """
         Check if camera is enabled and present
 
