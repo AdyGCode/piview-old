@@ -14,8 +14,9 @@
 import subprocess
 
 
-class Storage():
-    def ram(self):
+class Storage:
+    @staticmethod
+    def ram():
         """
         Provide the total RAM and free RAM to the user as a tuple
 
@@ -30,7 +31,8 @@ class Storage():
         # total/free
         return ram[1], ram[3]
 
-    def disc(self):
+    @staticmethod
+    def disc():
         """
         Provide the total disc space and the disc space that is free
 
@@ -45,7 +47,8 @@ class Storage():
         # total/free
         return disk[1], disk[3]
 
-    def all_discs(self):
+    @staticmethod
+    def all_discs():
         """
         Provide the user with the storage space (Total, Free) for each
         disc attached to the Pi as a dictionary.
@@ -61,18 +64,20 @@ class Storage():
         #   add "disk_name" :(total, free) to 'disc_stats' dictionary
         return disc_stats
 
-    def disk(self):
+    @staticmethod
+    def disk():
         """
         Alias for disc()
 
         see :func:`~PiView_AG.Storage.disc`
         """
-        return self.disc()
+        return Storage.disc()
 
-    def all_disks(self):
+    @staticmethod
+    def all_disks():
         """
         Alias for all_discs()
 
         see :func:`~PiView_AG.Storage.all_discs`
         """
-        return self.all_discs()
+        return Storage.all_discs()

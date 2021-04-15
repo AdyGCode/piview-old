@@ -14,11 +14,8 @@ import random
 
 
 class Utils:
-
-    def __init__(self):
-        return None
-
-    def draw_line(self, characters="-=-", length=40):
+    @staticmethod
+    def draw_line(characters="-=-", length=40):
         """
         Draw a line of characters using a given character and length
 
@@ -43,7 +40,8 @@ class Utils:
     # https://stackoverflow.com/questions/12523586/python-format-size
     # -application
     # -converting-b-to-kb-mb-gb-tb/37423778
-    def format_bytes(self, size=0, style=None):
+    @staticmethod
+    def format_bytes(size=0, style=None):
         """
         Formats the given value into Bytes, Kilobytes, Megabytes, ...
 
@@ -82,7 +80,8 @@ class Utils:
 
         return size, power_labels[n] + suffix
 
-    def random_percentage(self, min_percentage=0, max_percentage=100):
+    @staticmethod
+    def random_percentage(min_percentage=0, max_percentage=100):
         """
         This function returns a random percentage.
         Useful for simulations when developing monitoring dashboards

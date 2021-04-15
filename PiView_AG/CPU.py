@@ -18,7 +18,8 @@ from PiView_AG import Utils
 
 
 class CPU:
-    def speed(self):
+    @staticmethod
+    def speed():
         """
         Get the CPU frequency using the vcgencmd on Linux based systems
 
@@ -37,7 +38,8 @@ class CPU:
             freq = '0'
         return freq
 
-    def max_load(self):
+    @staticmethod
+    def max_load():
         """
         This function returns the maximum "CPU load" across all CPU cores,
         or a random value if the actual CPU load can't be determined.
@@ -50,7 +52,8 @@ class CPU:
         else:
             return Utils.random_percentage()
 
-    def temperature(self):
+    @staticmethod
+    def temperature():
         """
         Requests the CPU temperature from the vcgencmd returning the
         result to the caller as a string with a floating point value to 2DP

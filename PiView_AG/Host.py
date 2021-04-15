@@ -17,14 +17,14 @@
 
 from datetime import datetime, timedelta
 from socket import gethostname
-from sys import platform
+from sys import version_info
 
 import psutil
 
 
-class Host():
-
-    def boot_time(self):
+class Host:
+    @staticmethod
+    def boot_time():
         """
         Determines the time the device was started
 
@@ -34,7 +34,8 @@ class Host():
         booted_at = datetime.fromtimestamp(psutil.boot_time())
         return booted_at
 
-    def model(self):
+    @staticmethod
+    def model():
         """
         Provide Pi Model Details
 
@@ -50,7 +51,8 @@ class Host():
 
         return my_model
 
-    def name(self):
+    @staticmethod
+    def name():
         """
         Provides the host name to the user
 
@@ -59,17 +61,19 @@ class Host():
         """
         return gethostname()
 
-    def python(self):
+    @staticmethod
+    def python():
         """
         Get current Python version
 
         :rtype: string
         :return: A string containing the version of python that is being used
         """
-        pythonv = platform.python_version()
+        pythonv = '.'.join([str(x) for x in version_info[:3]])
         return pythonv
 
-    def revision(self):
+    @staticmethod
+    def revision():
         """
         Provide board revision details
 
@@ -90,7 +94,8 @@ class Host():
 
         return my_revision
 
-    def serial(self):
+    @staticmethod
+    def serial():
         """
         Provide the Serial Number of the Pi CPU
 
@@ -111,7 +116,8 @@ class Host():
 
         return my_cpu_serial
 
-    def uptime(self):
+    @staticmethod
+    def uptime():
         """
         Determines the amount of time the device has been running for in
         seconds
@@ -119,7 +125,7 @@ class Host():
         :rtype: float
         :return: The time that the Pi has been 'up' for
         """
-        booted_at = self.boot_time()
+        booted_at = Host.boot_time()
         current_at = datetime.now()
         uptime_seconds = (current_at - booted_at).total_seconds()
         uptime = timedelta(seconds=uptime_seconds)

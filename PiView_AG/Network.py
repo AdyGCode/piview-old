@@ -16,8 +16,8 @@ from socket import gethostname
 
 
 class Network:
-
-    def host_name(self):
+    @staticmethod
+    def host_name():
         """Provide the host name to the user
 
         :rtype: string
@@ -27,18 +27,19 @@ class Network:
         # return platform.uname()[1]
         return gethostname()
 
-    def eth_name(self, type=None):
+    @staticmethod
+    def eth_name(_type=None):
         """Provide the Ethernet interface name
 
-        :param type: string, possible options are: enx or eth
+        :param _type: string, possible options are: enx or eth
         :rtype: string
         :return: The network interface name
         """
         options = ['enx', 'eth']
         interface = None
-        if type == 'w':
+        if _type == 'w':
             options = ['wla']
-        if type == 'l':
+        if _type == 'l':
             options = ['lo']
         try:
             for root, dirs, files in os.walk('/sys/class/net'):
@@ -50,7 +51,8 @@ class Network:
             interface = "None"
         return interface
 
-    def mac(self, interface='eth0'):
+    @staticmethod
+    def mac(interface='eth0'):
         """Provides the hardware MAC address for the interface requested
 
         Default is eth0
@@ -66,7 +68,8 @@ class Network:
             line = "None"
         return line[0:17]
 
-    def ip(self, interface='eth0'):
+    @staticmethod
+    def ip(interface='eth0'):
         """Provide IP Address from the named interface
 
         Default is eth0
