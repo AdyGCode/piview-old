@@ -2,10 +2,9 @@
 
 A Raspberry Pi system information package.
 
-![PiView Icon](https://github.com/AdyGCode/PiView-AG/blob/main/attachments/PiView%400.25x.png)
+![PiView Icon](PiView-0.25x.png)
 
-PiView provides the details of the Raspberry Pi currently being interrogated. System information
-includes, but is not limited to:
+PiView provides the details of the Raspberry Pi currently being interrogated. System information includes, but is not limited to:
 
 - **CPU**: max load across cores, temperature, clock speed
 - **GPU**: temperature
@@ -21,8 +20,7 @@ Also includes a small utility library with:
 
 ## Changes
 
-See the [CHANGES](https://github.com/AdyGCode/PiView-AG/blob/main/CHANGES.md) document for
-details of updates and changes.
+See the [CHANGES](CHANGES.md) document for details of updates and changes.
 
 ## Requirements
 
@@ -46,11 +44,17 @@ Building is in 3 stages:
 python3 -m build
 ```
 
+### Publish package
+
+```shell
+python3 -m twine upload --repository PiView-AG dist/*
+```
+
 ### Build Docs
 
-If you wish to build the docs from scratch, then remove the docs/source/modules.rst and the
-docs/source/PiView_AG.rst.
+If you wish to build the docs from scratch, then remove the docs/source/modules.rst and the docs/source/PiView_AG.rst files before using the build steps.
 
+#### First Build
 From there, first time through use:
 
 ```shell
@@ -59,6 +63,7 @@ sphinx-apidoc -o source ../PiView_AG -a -f
 sphinx-build -b html source html -a -j 2
 ```
 
+#### Re-Builds
 Subsequent runs, if you are in the documentation (docs) folder already:
 
 ```shell
@@ -66,31 +71,19 @@ sphinx-apidoc -o source ../PiView_AG -a -f
 make clean && make html
 ```
 
-### Publish package
-
-```shell
-python3 -m twine upload --repository PiView-AG dist/*
-```
-
 ## Acknowledgements
 
-A very large thank you to Matt Hawkins upon whose code this package is based.
-[https://www.raspberrypi-spy.co.uk/](https://www.raspberrypi-spy.co.uk/)
+A very large thank you to Matt Hawkins upon whose code this package is based: [https://www.raspberrypi-spy.co.uk/](https://www.raspberrypi-spy.co.uk/).
 
-The original code may be found as
-[mypi.py](https://github.com/tdamdouni/Raspberry-Pi-DIY-Projects/blob/master/MattHawkinsUK-rpispy-misc/python/mypi.py)
-.
+The original code may be found as [mypi.py](https://github.com/tdamdouni/Raspberry-Pi-DIY-Projects/blob/master/MattHawkinsUK-rpispy-misc/python/mypi.py).
 
 ## About the Author
 
-Adrian Gould has been coding for over 40 years, starting his coding in Sinclair ZX-80 Basic and
-Machine Code, through Pascal, Modula-2, Occam, Prolog and many others to the current swathe of
-Python, C#, PHP, JS, and other languages today.
+Adrian Gould has been coding for over 40 years, starting his coding in Sinclair ZX-80 Basic and Machine Code, through Pascal, Modula-2, Occam, Prolog and many others to the current swathe of Python, C#, PHP, JS, and other languages today.
 
-He believes that it is a continuous process to learn a language, and will always say he is not
-an expert.
+He believes that it is a continuous process to learn any (coding) language, and will always say he is not an expert.
 
-He is a full time educator in Perth, Western Australia.
+He is a full time educator who lives and works in Perth, Western Australia.
 
 ## Copyright
 
