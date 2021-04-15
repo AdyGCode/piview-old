@@ -30,52 +30,18 @@ This project requires a number of packages, including:
 
 Remaining packages are Python 'built-ins'.
 
-## Building
+## Usage
 
-Building is in 3 stages:
+to be added...
 
-1. Build package
-2. Update and build docs
-3. Publish package
-
-### Build package
-
-```shell
-python3 -m build
-```
-
-### Publish package
-
-```shell
-python3 -m twine upload --repository PiView-AG dist/*
-```
-
-### Build Docs
-
-If you wish to build the docs from scratch, then remove the docs/source/modules.rst and the docs/source/PiView_AG.rst files before using the build steps.
-
-#### First Build
-From there, first time through use:
-
-```shell
-cd docs
-sphinx-apidoc -o source ../PiView_AG -a -f 
-sphinx-build -b html source html -a -j 2
-```
-
-#### Re-Builds
-Subsequent runs, if you are in the documentation (docs) folder already:
-
-```shell
-sphinx-apidoc -o source ../PiView_AG -a -f 
-make clean && make html
-```
 
 ## Acknowledgements
 
 A very large thank you to Matt Hawkins upon whose code this package is based: [https://www.raspberrypi-spy.co.uk/](https://www.raspberrypi-spy.co.uk/).
 
 The original code may be found as [mypi.py](https://github.com/tdamdouni/Raspberry-Pi-DIY-Projects/blob/master/MattHawkinsUK-rpispy-misc/python/mypi.py).
+
+Thank you to Sander Huijsen for his contributions and guidance in all things Python.
 
 ## About the Author
 
