@@ -2,7 +2,7 @@
 
 A Raspberry Pi system information package.
 
-![PiView Icon](PiView-0.25x.png)
+![PiView Icon](attachments/PiView-0.25x.png)
 
 PiView provides the details of the Raspberry Pi currently being interrogated. System information includes, but is not limited to:
 
